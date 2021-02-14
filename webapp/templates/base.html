@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <head>
+        {% if title %}
         <title>{{ title }}</title>
+        {% else %}
+        <title>Web Twitter Data Mining</title>
+        {% endif %}
     </head>
-</head>
-<body>
-    <div>Main page: <a href="/index">Home</a></div>
-    <hr>
-    {% block content %}{% endblock %}
-</body>
+    <body>
+        <div>
+            Main page:
+            <a href="/index">Home</a>
+            <a href="/AddTask">Add task</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
 </html>
