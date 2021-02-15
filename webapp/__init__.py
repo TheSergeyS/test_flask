@@ -12,5 +12,5 @@ from webapp import routes
 
 
 # Для отладки в Шарме, потом удалить
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
