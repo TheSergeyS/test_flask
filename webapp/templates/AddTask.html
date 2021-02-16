@@ -7,10 +7,16 @@
         <p>
             {{ form.description_task.label }}<br>
             {{ form.description_task(size=32) }}
+            {% for error in form.description_task.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
         </p>
         <p>
             {{ form.duedate_for_task.label }}<br>
             {{ form.duedate_for_task(size=32) }}
+            {% for error in form.duedate_for_task.errors %}
+                <span style="color: red;">[{{ "format Date must be in XX.XX.XXXX format" }}]</span>
+            {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
