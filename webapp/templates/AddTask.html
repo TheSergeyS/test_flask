@@ -18,6 +18,13 @@
                 <span style="color: red;">[{{ "format Date must be in XX.XX.XXXX format" }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.action_for_task.label }}<br>
+            {{ form.action_for_task(size=3) }}
+            {% for error in form.action_for_task.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

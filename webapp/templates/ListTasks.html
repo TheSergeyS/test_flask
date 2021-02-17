@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for row in curs %}
+    {# id, description, _is_done, _is_deleted, createdon, duedate = row #}
+    <li> {{ '{%-2s} %-22s [%-10s] (%-10s) (%s)' % (row[0], row[1], row[2], row[3], row[4]) }} </li>
+{% endfor %}
+
+{% endblock %}
+

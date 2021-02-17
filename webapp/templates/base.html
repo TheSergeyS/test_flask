@@ -10,8 +10,9 @@
     <body>
         <div>
             Main page:
-            <a href="/index">Home</a>
-            <a href="/AddTask">Add task</a>
+            <a href="{{ url_for('index') }}">Home, </a>
+            <a href="{{ url_for('listtasks') }}">List tasks, </a>
+            <a href="{{ url_for('addtask') }}">Add task</a>
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}
