@@ -1,6 +1,6 @@
 from webapp import app
 from flask import render_template, flash, redirect
-from webapp.forms import AddTaskForm, ListTasksForm
+from webapp.forms import AddTaskForm
 import webapp.datastorage as datastorage
 
 @app.route('/')

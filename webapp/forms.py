@@ -14,9 +14,11 @@ import datetime as dt
 def action_for_task():
 
     choices = []
-    choices.append(('tw',        'Tweet'))
-    choices.append(('friends',   'Friends'))
-    choices.append(('foll',      'Followers'))
+    # Getting All Friends or Followers for a User
+    choices.append(('Friends',   'Friends'))
+    choices.append(('Followers', 'Followers'))
+    # Analyzing a User’s Favorite Tweets
+    choices.append(('favorite_tw', 'User’s Favorite Tweets'))
 
     return choices
 
@@ -27,6 +29,3 @@ class AddTaskForm(FlaskForm):
     action_for_task = SelectField('Action', choices = action_for_task(), validate_choice = True)
 
     submit = SubmitField('Add task')
-
-class ListTasksForm(FlaskForm):
-    pass

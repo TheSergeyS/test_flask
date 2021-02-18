@@ -2,10 +2,25 @@
 
 {% block content %}
 
-{% for row in curs %}
-    {# id, description, _is_done, _is_deleted, createdon, duedate = row #}
-    <li> {{ '{%-2s} %-22s [%-10s] (%-10s) (%s)' % (row[0], row[1], row[2], row[3], row[4]) }} </li>
-{% endfor %}
+<h2>List of ACTIVE tasks</h2>
+<table border="1">
+        <tr valign="top">
+        <td width="10%">id</td>
+        <td width="30%">description</td>
+        <td width="10%">is_done</td>
+        <td width="20%">createdon</td>
+        <td width="30%">duedate</td>
+        </tr>
+        {% for row in curs %}
+        <tr valign="top">
+            <td width="10%">{{ row[0] }}</td>
+            <td width="30%">{{ row[1] }}</td>
+            <td width="10%">{{ row[2]  }}</td>
+            <td width="20%">{{ row[3] }}</td>
+            <td width="30%">{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
 
