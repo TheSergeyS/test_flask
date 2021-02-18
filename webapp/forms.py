@@ -24,8 +24,21 @@ def action_for_task():
 
 class AddTaskForm(FlaskForm):
 
-    description_task = StringField('Description for task', validators=[InputRequired()])
-    duedate_for_task = DateField('Due date', format = '%d.%m.%Y', validators=[DataRequired()])
+    # description_task = StringField('Description for task', validators=[InputRequired()])
+    # duedate_for_task = DateField('Due date', format = '%d.%m.%Y', validators=[DataRequired()])
     action_for_task = SelectField('Action', choices = action_for_task(), validate_choice = True)
 
-    submit = SubmitField('Add task')
+    next = SubmitField('Next')
+    cancel = SubmitField('Cancel')
+
+class UserForm(FlaskForm):
+
+    # description_task = StringField('Description for task', validators=[InputRequired()])
+    # duedate_for_task = DateField('Due date', format = '%d.%m.%Y', validators=[DataRequired()])
+    # action_for_task = SelectField('Action', choices = action_for_task(), validate_choice = True)
+
+    user_id     = StringField('user id', validators=[InputRequired()])
+    screen_name = StringField('screen name', validators=[InputRequired()])
+
+    next        = SubmitField('Next')
+    cancel      = SubmitField('Cancel')
