@@ -3,5 +3,6 @@ https://habr.com/ru/post/346342/
 https://git-scm.com/book/uk/v2/
 http://htmlbook.ru/
 https://wtforms.readthedocs.io/en/2.3.x/crash_course/
+https://flask-russian-docs.readthedocs.io/ru/latest/api.html#url-route-registrations
 https://buildmedia.readthedocs.org/media/pdf/flask-russian-docs/0.9/flask-russian-docs.pdf
 https://jinja.palletsprojects.com/en/2.11.x/
