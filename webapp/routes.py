@@ -8,6 +8,14 @@ import webapp.datastorage as datastorage
 def index():
     return render_template('index.html')
 
+@app.route('/listtasks')
+def listtasks():
+
+    conn = datastorage.init()
+    curs = datastorage.read_all_tasks(conn)
+
+    return render_template('ListTasks.html', curs = curs)
+
 @app.route('/addtask', methods=['GET', 'POST'])
 def addtask():
 
@@ -20,21 +28,17 @@ def addtask():
 
     if form.validate_on_submit():
 
-        # flash('Add task: {} with duedate: {}'.format(form.description_task.data, form.duedate_for_task.data))
-        # datastorage.add_task(conn, form.description_task.data, form.duedate_for_task.data)
-
         if form.action_for_task.data == "friends":
-            # '/addtask?action=friends'
-            return redirect(url_for('addtask', action = form.action_for_task.data))
+            return redirect(url_for('task_id_name', action = form.action_for_task.data))
             # return redirect('/addtask/friends')
         elif form.action_for_task.data == "followers":
-            return redirect(url_for('addtask', action = form.action_for_task.data))
+            return redirect(url_for('task_id_name', action = form.action_for_task.data))
 
     return render_template('AddTask.html', title = 'Add new task', form=form)
 
 
-@app.route('/addtask/action', methods=['GET', 'POST'])
-def friends(action):
+@app.route('/addtask/<action>', methods=['GET', 'POST'])
+def task_id_name(action):
     # userform('friends')
     form = UserForm()
     # conn = datastorage.init()
@@ -46,12 +50,12 @@ def friends(action):
     if form.validate_on_submit():
 
         if form.user_id.data:
-            flash('Add task for id: {}, action: {}'.format(form.user_id.data, 'friends'))
+            flash('Add task for id: {}, action: {}'.format(form.user_id.data, action))
             # datastorage.add_task(conn, form.description_task.data, form.duedate_for_task.data)
             return redirect('/index')
 
         elif form.screen_name.data:
-            flash('Add task for screen name: {}, action: {}'.format(form.screen_name.data, 'friends'))
+            flash('Add task for screen name: {}, action: {}'.format(form.screen_name.data, action))
             # datastorage.add_task(conn, form.description_task.data, form.duedate_for_task.data)
             return redirect('/index')
 
@@ -86,11 +90,5 @@ def userform(action):
     return render_template('UserForm.html', title='User ID or Screen name', form=form)
 
 
-@app.route('/listtasks')
-def listtasks():
 
-    conn = datastorage.init()
-    curs = datastorage.read_all_tasks(conn)
-
-    return render_template('ListTasks.html', curs = curs)
 
