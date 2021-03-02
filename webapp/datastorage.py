@@ -16,6 +16,19 @@ def init():
               DueDate Date);
               """)
 
+    # curs.execute("""
+    #           CREATE TABLE IF NOT EXISTS "InfoAboutTask" (
+    #             id INTEGER PRIMARY KEY,
+    #             action TEXT,
+    #             user_id TEXT,
+    #             screen_name TEXT,
+    #
+    #             _is_done boolean default FALSE,
+    #             _is_deleted boolean default FALSE,
+    #             CreatedOn Date DEFAULT CURRENT_DATE,
+    #             DueDate Date);
+    #             """)
+
     return conn
 
 def add_task(conn, description, duedate):

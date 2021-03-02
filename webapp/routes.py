@@ -29,17 +29,16 @@ def addtask():
     if form.validate_on_submit():
 
         if form.action_for_task.data == "friends":
-            return redirect(url_for('task_id_name', action = form.action_for_task.data))
-            # return redirect('/addtask/friends')
+            return redirect(url_for('user', action = form.action_for_task.data))
         elif form.action_for_task.data == "followers":
-            return redirect(url_for('task_id_name', action = form.action_for_task.data))
+            return redirect(url_for('user', action = form.action_for_task.data))
 
     return render_template('AddTask.html', title = 'Add new task', form=form)
 
 
-@app.route('/addtask/<action>', methods=['GET', 'POST'])
-def task_id_name(action):
-    # userform('friends')
+@app.route('/user/<action>', methods=['GET', 'POST'])
+def user(action):
+
     form = UserForm()
     # conn = datastorage.init()
 
