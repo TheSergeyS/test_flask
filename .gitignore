@@ -1,5 +1,6 @@
 __pycache__/
 venv/
 .idea/
+webapp/credentionals.py
 *.py[cod]
 testDB.sqllite
