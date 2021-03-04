@@ -1,7 +1,6 @@
 from flask import Flask
 from webapp import datastorage
 from webapp.config import Config
-import twitter as tw
 
 app = Flask(__name__)
 app.config.from_object(Config)

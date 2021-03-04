@@ -10,3 +10,6 @@ https://developer.twitter.com/en/docs/api-reference-index#twitter-api-v1
 https://www.findmecity.com
         Kiev 	UA 	924938
         Ukraine 	UA 	UA 	23424976
+
+https://pymongo.readthedocs.io/en/stable/tutorial.html#prerequisites
+https://docs.mongodb.com/manual/introduction/
