@@ -30,6 +30,11 @@ twitter_api = tw.oauth_login()
 # 4.
 friends_id, followers_ids = tw.get_friends_followers_ids(twitter_api,
                                                          screen_name='TheSergeyS')
-print(tw.get_user_profile(twitter_api,user_ids=friends_id))
+users_profile = tw.get_user_profile(twitter_api,user_ids=friends_id)
+
 print(friends_id)
 print(followers_ids)
+print(users_profile)
+
+for key, value in users_profile.items():
+    print(value)
