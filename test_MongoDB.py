@@ -6,6 +6,12 @@ import pprint
 twitter_api = tw.oauth_login()
 client = MongoClient('127.0.0.1', 3979)
 
+db = client.tw_data
+
+users = db.users
+followers = db.followers
+friends = db.friends
+
 # 1.
 # db = client.test_db
 # post = {"author": "Mike", "text": "My first blog post!"}
@@ -25,9 +31,6 @@ client = MongoClient('127.0.0.1', 3979)
 #     print(user_id)
 
 # 3.
-db = client.tw_data
-users = db.users
-
 # pprint.pprint(users.find_one())
 # pprint.pprint((users.find_one({'name': 'дїїїїїїїдько'})))
 # print(users.count_documents({}))
@@ -38,6 +41,10 @@ users = db.users
 # for user in users.find({"id": {"$in": [42980370, 2813067186]}}):
 #     print("name: {0}, id: {1}".format(user['name'], user['id']))
 
-for user in users.find({"followers_count": {"$gte": 1000000}}):
-    print("name: {0}, id: {1}, followers: {2}".format(user['name'], user['id'], user['followers_count']))
-    print(user)
+# for user in users.find({"followers_count": {"$gte": 1000000}}):
+#     print("name: {0}, id: {1}, followers: {2}".format(user['name'], user['id'], user['followers_count']))
+#     print(user)
+
+
+
+

@@ -13,3 +13,8 @@ https://www.findmecity.com
 
 https://pymongo.readthedocs.io/en/stable/tutorial.html#prerequisites
 https://docs.mongodb.com/manual/introduction/
+https://habr.com/ru/post/139643/
+
+////venv
+C:\PSF\PyProjects\web\test_flask>venv\Scripts\activate
+////venv
